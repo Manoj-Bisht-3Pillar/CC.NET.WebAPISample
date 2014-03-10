@@ -15,8 +15,14 @@ namespace Store.API.Controllers
             return Ok();
         }
 
-        //GET: api/Phones/1
+        //GET: api/Phones/samsung-gem
         public IHttpActionResult Get(string id)
+        {
+            return Ok();
+        }
+
+        //DELETE: api/Phones/samsung-gem
+        public IHttpActionResult Delete(string id)
         {
             return Ok();
         }
