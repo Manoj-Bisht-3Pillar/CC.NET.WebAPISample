@@ -140,6 +140,20 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainObject.Entity\DomainObject.Entity.csproj">
+      <Project>{efe8f4a7-ea91-48a1-887f-8a3be10a1a4c}</Project>
+      <Name>DomainObject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.DataService\Repository.DataService.csproj">
+      <Project>{58f4502c-b868-4d8c-8fc3-9e74e338f661}</Project>
+      <Name>Repository.DataService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.Interface\Repository.Interface.csproj">
+      <Project>{00a1fcaf-eb28-4c7b-a5b2-aa5607d646a4}</Project>
+      <Name>Repository.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
