@@ -61,14 +61,14 @@ namespace Repository.DataService
         public List<TEntity> ToList()
         {
             var data = GetEnumerable();
-            return data != null ? GetEnumerable().ToList() : null;
+            return data != null ? data.ToList() : null;
         }
 
         public TEntity Add(TEntity entity)
         {
             var currentData = ToList();
             currentData.Add(entity);
-            File.WriteAllText(FileName, JsonConvert.SerializeObject(currentData));
+            UpdateFile(currentData);
             return entity;
         }
 
@@ -80,7 +80,12 @@ namespace Repository.DataService
                 return false;
             }
             currentData.Remove(entity);
-            File.WriteAllText(FileName, JsonConvert.SerializeObject(currentData));
+          return UpdateFile(currentData);
+        }
+
+        private bool UpdateFile(List<TEntity> data)
+        {
+            File.WriteAllText(FileName, JsonConvert.SerializeObject(data));
             return true;
         }
     }
