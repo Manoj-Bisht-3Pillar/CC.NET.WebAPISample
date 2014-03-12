@@ -9,20 +9,23 @@ namespace Repository.DataService
     {
         private List<Phone> phones = new List<Phone>();
         private int _nextAge = 0;
-
+        private readonly IJsonContext phoneJsonContext;
         public PhoneRepository()
         {
-            Add(new Phone()
-            {
-                Id = "motorola-xoom-with-wi-fi",
-                Name = "Motorola XOOM\u2122 with Wi-Fi",
-                Snippet = "The Next, Next Generation\r\n\r\nExperience the future with Motorola XOOM with Wi-Fi, the world's first tablet powered by Android 3.0 (Honeycomb).",
-                ImageUrl = "img/phones/motorola-xoom-with-wi-fi.0.jpg"
-            });
+            phoneJsonContext = new PhoneJsonContext();
+
+            //Add(new Phone()
+            //{
+            //    Id = "motorola-xoom-with-wi-fi",
+            //    Name = "Motorola XOOM\u2122 with Wi-Fi",
+            //    Snippet = "The Next, Next Generation\r\n\r\nExperience the future with Motorola XOOM with Wi-Fi, the world's first tablet powered by Android 3.0 (Honeycomb).",
+            //    ImageUrl = "img/phones/motorola-xoom-with-wi-fi.0.jpg"
+            //});
         }
 
         public IEnumerable<Phone> GetAll()
         {
+            var phones = phoneJsonContext.Phones.ToList();
             return phones;
         }
 
