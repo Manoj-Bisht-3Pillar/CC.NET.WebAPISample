@@ -14,14 +14,12 @@ namespace Repository.DataService
         public IJsonSet<Phone> Phones { get; set; }
         public PhoneJsonContext():base("phoneDB")
         {
-            //Still Need to inovate batter.
-            //OnModalCreating += OnModalCreatingHandler;
-            OnModalCreatingHandler();
+            LoadTables();
         }
 
-        public void OnModalCreatingHandler()
+        public void LoadTables()
         {
-            Phones = new JsonSet<Phone>();
+            Phones = new JsonSet<Phone>(JsonFolderName);
         }
     }
 }

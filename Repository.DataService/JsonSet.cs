@@ -27,15 +27,13 @@ namespace Repository.DataService
         {
             get
             {
-                _FileName = string.IsNullOrWhiteSpace(_FileName) ? typeof(TEntity).Name : _FileName;
-                _FileName = _FileName.EndsWith(".json") ? _FileName : string.Format("{0}.json", _FileName);
-                return _FileName;
+                return string.Format("{0}{1}.json", _FileName, typeof(TEntity).Name); ;
             }
         }
 
-        public JsonSet()
+        public JsonSet(string jsonFilePath)
         {
-            CreateFile(string.Empty);
+            CreateFile(jsonFilePath);
         }
 
 
@@ -45,7 +43,10 @@ namespace Repository.DataService
 
             if (!File.Exists(FileName))
             {
-                File.Create(FileName);
+                using (var file = File.Create(FileName))
+                {
+
+                }
             }
 
         }

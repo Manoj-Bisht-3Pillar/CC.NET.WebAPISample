@@ -9,6 +9,7 @@ namespace Repository.Interface
 {
     public interface IJsonContext
     {
+        string JsonFolderName { get; set; }
         IJsonSet<Phone> Phones { get; set; }
     }
 }
