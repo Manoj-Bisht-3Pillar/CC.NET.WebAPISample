@@ -10,6 +10,9 @@ namespace Store.API
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            
+            //Enable Cross Origin Resource Sharing
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
