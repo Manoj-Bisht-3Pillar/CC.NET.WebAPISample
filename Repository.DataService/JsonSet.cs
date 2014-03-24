@@ -54,7 +54,7 @@ namespace Repository.DataService
         public IEnumerable<TEntity> GetEnumerable()
         {
             var rawData = File.ReadAllText(FileName);
-            var data = JsonConvert.DeserializeObject<List<TEntity>>(rawData);
+            var data = JsonConvert.DeserializeObject<List<TEntity>>(rawData)??new List<TEntity>();
             return data;
         }
 

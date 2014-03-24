@@ -42,6 +42,7 @@ namespace Repository.DataService
             }
             item.Age = _nextAge++;
             phones.Add(item);
+            phoneJsonContext.Phones.Add(item);
             return item;
         }
 
