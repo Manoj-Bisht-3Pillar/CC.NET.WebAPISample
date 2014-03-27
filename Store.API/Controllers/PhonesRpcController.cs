@@ -100,6 +100,28 @@ namespace Store.API.Controllers
             return Request.CreateResponse(HttpStatusCode.Accepted);
         }
 
+
+        //Add Microsoft ASP.NET Web API OData nuget Package for partial entity updates
+        //PATCH : /rpc/PhonesRpc/PhonePartial/samsung-gem
+        //Body: {"age":"2"}
+        [HttpPatch]
+        public HttpResponseMessage PhonePartial(string id, Phone phone)
+        {
+            var item = repository.Get(id);
+            if (item == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                     string.Format("Phone with id = {0} not found.", id));
+            }
+            else
+            {
+               // phone.Patch(item);
+
+                var result = repository.Update(item);
+                return Request.CreateResponse(HttpStatusCode.OK, item);
+            }
+        }
+
         #endregion
     }
 }
